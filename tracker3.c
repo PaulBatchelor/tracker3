@@ -34,92 +34,113 @@ static void key(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
     tracker3_d *track = glfwGetWindowUserPointer(window);
     if(action == GLFW_PRESS || action == GLFW_REPEAT) {
-        switch(key) {
-            case GLFW_KEY_J:
-                tracker_move_down(track);
+        switch(mods) {
+            case GLFW_MOD_SHIFT:
+                switch(key) {
+                    case GLFW_KEY_EQUAL: /* + */
+                        tracker_editstep_up(track);
+                        break;
+                    case GLFW_KEY_J:
+                        tracker_move_downjump(track);
+                        break;
+                    case GLFW_KEY_K:
+                        tracker_move_upjump(track);
+                        break;
+                }
                 break;
-            case GLFW_KEY_K:
-                tracker_move_up(track);
-                break;
-            case GLFW_KEY_H:
-                tracker_move_left(track);
-                break;
-            case GLFW_KEY_L:
-                tracker_move_right(track);
-                break;
-            /* notes */
-            case GLFW_KEY_Q:
-                tracker_play_note(track, 0);
-                break;
-            case GLFW_KEY_2:
-                tracker_play_note(track, 1);
-                break;
-            case GLFW_KEY_W:
-                tracker_play_note(track, 2);
-                break;
-            case GLFW_KEY_3:
-                tracker_play_note(track, 3);
-                break;
-            case GLFW_KEY_E:
-                tracker_play_note(track, 4);
-                break;
-            case GLFW_KEY_R:
-                tracker_play_note(track, 5);
-                break;
-            case GLFW_KEY_5:
-                tracker_play_note(track, 6);
-                break;
-            case GLFW_KEY_T:
-                tracker_play_note(track, 7);
-                break;
-            case GLFW_KEY_6:
-                tracker_play_note(track, 8);
-                break;
-            case GLFW_KEY_Y:
-                tracker_play_note(track, 9);
-                break;
-            case GLFW_KEY_7:
-                tracker_play_note(track, 10);
-                break;
-            case GLFW_KEY_U:
-                tracker_play_note(track, 11);
-                break;
-            case GLFW_KEY_I:
-                tracker_play_note(track, 12);
-                break;
-            case GLFW_KEY_9:
-                tracker_play_note(track, 13);
-                break;
-            case GLFW_KEY_O:
-                tracker_play_note(track, 14);
-                break;
-            case GLFW_KEY_0:
-                tracker_play_note(track, 15);
-                break;
-            case GLFW_KEY_P:
-                tracker_play_note(track, 16);
-                break;
-            
-            case GLFW_KEY_X:
-                tracker_remove_note(track);
-                break;
-
-            case GLFW_KEY_TAB:
-                tracker_insert_noteoff(track);
-                break;
-
-            case GLFW_KEY_SPACE:
-                tracker_play(track);
-                break;
-
-            case GLFW_KEY_F:
-                tracker_runt_load(track);
-                break;
-            
-            case GLFW_KEY_S:
-                tracker_runt_save(track);
-                break;
-
+            default:
+                switch(key) {
+                    case GLFW_KEY_J:
+                        tracker_move_down(track);
+                        break;
+                    case GLFW_KEY_K:
+                        tracker_move_up(track);
+                        break;
+                    case GLFW_KEY_H:
+                        tracker_move_left(track);
+                        break;
+                    case GLFW_KEY_L:
+                        tracker_move_right(track);
+                        break;
+                    /* notes */
+                    case GLFW_KEY_Q:
+                        tracker_play_note(track, 0);
+                        break;
+                    case GLFW_KEY_2:
+                        tracker_play_note(track, 1);
+                        break;
+                    case GLFW_KEY_W:
+                        tracker_play_note(track, 2);
+                        break;
+                    case GLFW_KEY_3:
+                        tracker_play_note(track, 3);
+                        break;
+                    case GLFW_KEY_E:
+                        tracker_play_note(track, 4);
+                        break;
+                    case GLFW_KEY_R:
+                        tracker_play_note(track, 5);
+                        break;
+                    case GLFW_KEY_5:
+                        tracker_play_note(track, 6);
+                        break;
+                    case GLFW_KEY_T:
+                        tracker_play_note(track, 7);
+                        break;
+                    case GLFW_KEY_6:
+                        tracker_play_note(track, 8);
+                        break;
+                    case GLFW_KEY_Y:
+                        tracker_play_note(track, 9);
+                        break;
+                    case GLFW_KEY_7:
+                        tracker_play_note(track, 10);
+                        break;
+                    case GLFW_KEY_U:
+                        tracker_play_note(track, 11);
+                        break;
+                    case GLFW_KEY_I:
+                        tracker_play_note(track, 12);
+                        break;
+                    case GLFW_KEY_9:
+                        tracker_play_note(track, 13);
+                        break;
+                    case GLFW_KEY_O:
+                        tracker_play_note(track, 14);
+                        break;
+                    case GLFW_KEY_0:
+                        tracker_play_note(track, 15);
+                        break;
+                    case GLFW_KEY_P:
+                        tracker_play_note(track, 16);
+                        break;
+                    /* delete */ 
+                    case GLFW_KEY_X:
+                        tracker_remove_note(track);
+                        break;
+                    /* noteoff */
+                    case GLFW_KEY_TAB:
+                        tracker_insert_noteoff(track);
+                        break;
+                    case GLFW_KEY_SPACE:
+                        tracker_play(track);
+                        break;
+                    case GLFW_KEY_F:
+                        tracker_runt_load(track);
+                        break;
+                    case GLFW_KEY_S:
+                        tracker_runt_save(track);
+                        break;
+                    case GLFW_KEY_PERIOD:
+                        tracker_octave_up(track);
+                        break;
+                    case GLFW_KEY_COMMA:
+                        tracker_octave_down(track);
+                        break;
+                    case GLFW_KEY_MINUS:
+                        tracker_editstep_down(track);
+                        break;
+                }
         }
     } else if(action == GLFW_RELEASE) {
         switch(key) {
@@ -219,6 +240,8 @@ void tracker_init(tracker3_d *track,
     track->gates = gates;
     track->filename = filename;
 
+    track->step = 0;
+
     tracker_runt_init(track);
     tracker_runt_load(track);
 }
@@ -280,6 +303,28 @@ void tracker_move_right(tracker3_d *track)
 
     tracker_update(track);
 }
+
+void tracker_move_upjump(tracker3_d *track)
+{
+    track->pos -= track->step;
+
+    if(track->pos < 0) {
+        track->pos = 63;
+    }
+
+    tracker_update(track);
+}
+
+void tracker_move_downjump(tracker3_d *track)
+{
+    track->pos += track->step;
+
+    if(track->pos >= 64) {
+        track->pos = 0;
+    }
+
+    tracker_update(track);
+}
                 
 void tracker_play_note(tracker3_d *track, int off)
 {
@@ -293,6 +338,7 @@ void tracker_play_note(tracker3_d *track, int off)
     track->notes[track->chan] = note;
     if(!track->is_playing) {
         track->data[n] = note;
+        track->pos += track->step;
     }
     
     tracker_update(track);
@@ -300,7 +346,6 @@ void tracker_play_note(tracker3_d *track, int off)
 
 void tracker_play_noteoff(tracker3_d *track)
 {
-    printf("noteoff!\n");
     track->gates[track->chan] = 0;
 }
 
@@ -310,7 +355,8 @@ void tracker_remove_note(tracker3_d *track)
     n = track->pos * 3 + track->chan;
 
     track->data[n] = -1;
-    tracker_update(track);
+    /* calls update_track */
+    tracker_move_downjump(track);
 }
 
 void tracker_insert_noteoff(tracker3_d *track)
@@ -358,4 +404,29 @@ void tracker_play(tracker3_d *track)
     }
 
     tracker_update(track);
+}
+
+void tracker_octave_up(tracker3_d *track)
+{
+    track->octave++;
+    if(track->octave > 9) track->octave = 9;
+}
+
+void tracker_octave_down(tracker3_d *track)
+{
+    track->octave--;
+    if(track->octave <= 0) track->octave = 1;
+}
+
+void tracker_editstep_up(tracker3_d *track)
+{
+    track->step++;
+    if(track->step > 64) track->step = 0;
+
+}
+
+void tracker_editstep_down(tracker3_d *track)
+{
+    track->step--;
+    if(track->step < 0) track->step = 0;
 }

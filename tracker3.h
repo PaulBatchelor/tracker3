@@ -17,6 +17,7 @@ typedef struct tracker3_d {
     runt_vm vm;
     unsigned char *buf;
     runt_cell *cells;
+    int step;
 } tracker3_d;
 
 void tracker_init(tracker3_d *track,
@@ -33,6 +34,9 @@ void tracker_move_left(tracker3_d *track);
 void tracker_move_right(tracker3_d *track);
 void tracker_move_up(tracker3_d *track);
 void tracker_move_down(tracker3_d *track);
+
+void tracker_move_upjump(tracker3_d *track);
+void tracker_move_downjump(tracker3_d *track);
 
 /* note manipulation */
 void tracker_play_note(tracker3_d *track, int off);
@@ -55,4 +59,12 @@ void tracker_runt_free(tracker3_d *track);
 void tracker_runt_load(tracker3_d *track);
 void tracker_runt_save(tracker3_d *track);
 
+/* octave */
+void tracker_octave_up(tracker3_d *track);
+void tracker_octave_down(tracker3_d *track);
+
+/* edit step */
+
+void tracker_editstep_up(tracker3_d *track);
+void tracker_editstep_down(tracker3_d *track);
 #endif

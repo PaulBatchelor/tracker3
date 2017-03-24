@@ -12,7 +12,16 @@ _clk get _notes _gates "test.rnt" _seq fe
 
 0 _gates tget 0.01 port *
 
-_clk get 0.001 0.001 0.001 tenvx 1000 0.3 sine * +
+1 _notes tget 
+1 _gates tget 0.5 0 thresh 0.001 tport 
+
+6 0.1 sine +  mtof 0.3 0.25 square 1000
+
+butlp 
+1 _gates tget 0.01 0.1 0.4 0.1 adsr *
++
+
+
 dup
 _seq fc
 )
