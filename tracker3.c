@@ -7,6 +7,7 @@
 #include <pthread.h>
 #include <unistd.h>
 #include <string.h>
+#include <runt.h>
 #include "tracker3.h"
 
 void init(void)
@@ -106,10 +107,19 @@ static void key(GLFWwindow* window, int key, int scancode, int action, int mods)
             case GLFW_KEY_TAB:
                 tracker_insert_noteoff(track);
                 break;
-            
+
             case GLFW_KEY_SPACE:
                 tracker_play(track);
                 break;
+
+            case GLFW_KEY_F:
+                tracker_runt_load(track);
+                break;
+            
+            case GLFW_KEY_S:
+                tracker_runt_save(track);
+                break;
+
         }
     } else if(action == GLFW_RELEASE) {
         switch(key) {
@@ -208,6 +218,9 @@ void tracker_init(tracker3_d *track,
     track->notes = notes;
     track->gates = gates;
     track->filename = filename;
+
+    tracker_runt_init(track);
+    tracker_runt_load(track);
 }
 
 void tracker_start(tracker3_d *seq)

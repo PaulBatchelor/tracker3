@@ -3,7 +3,7 @@ _seq "./tracker3.so" fl
 _clk var
 0 120 4 clock _clk set
 
-_clk get _notes _gates "file.pat" _seq fe
+_clk get _notes _gates "test.rnt" _seq fe
 
 0 _notes tget "val" print mtof 
 0 _gates tget 0.5 0 thresh 

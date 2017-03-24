@@ -14,6 +14,9 @@ typedef struct tracker3_d {
     SPFLOAT *notes;
     SPFLOAT *gates;
     const char *filename;
+    runt_vm vm;
+    unsigned char *buf;
+    runt_cell *cells;
 } tracker3_d;
 
 void tracker_init(tracker3_d *track,
@@ -44,4 +47,12 @@ void tracker_play(tracker3_d *track);
 
 void tracker_start(tracker3_d *seq);
 void tracker_stop(tracker3_d *seq);
+
+/* runt */
+
+void tracker_runt_init(tracker3_d *track);
+void tracker_runt_free(tracker3_d *track);
+void tracker_runt_load(tracker3_d *track);
+void tracker_runt_save(tracker3_d *track);
+
 #endif

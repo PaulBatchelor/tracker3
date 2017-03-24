@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <soundpipe.h>
 #include <sporth.h>
+#include <runt.h>
 #include "tracker3.h"
 
 static int sporth_tracker3(plumber_data *pd, sporth_stack *stack, void **ud)

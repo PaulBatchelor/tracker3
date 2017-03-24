@@ -6,6 +6,7 @@
 #include <sporth.h>
 #include <pthread.h>
 #include <unistd.h>
+#include <runt.h>
 #include "tracker3.h"
 
 #include "bitmaps.h"

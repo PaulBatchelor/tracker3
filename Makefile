@@ -1,8 +1,8 @@
-LDFLAGS = -lpthread -lglfw -lGL -lsporth -lsoundpipe -ldl -lm
+LDFLAGS = -lpthread -lglfw -lGL -lsporth -lsoundpipe -ldl -lm -lrunt
 CFLAGS = -Wall -ansi
 default: tracker3.so
 
-OBJ = draw.o tracker3.o ugen.o
+OBJ = draw.o tracker3.o ugen.o runt.o
 
 default: tracker3.so
 
