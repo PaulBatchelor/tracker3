@@ -22,6 +22,7 @@ static int sporth_tracker3(plumber_data *pd, sporth_stack *stack, void **ud)
             gates = sporth_stack_pop_string(stack);
             notes = sporth_stack_pop_string(stack);
             sporth_stack_pop_float(stack);
+            sporth_stack_pop_float(stack);
 
             sp_ftbl_create(pd->sp, &ft_gates, 3);
             plumber_ftmap_add(pd, gates, ft_gates);
@@ -38,12 +39,18 @@ static int sporth_tracker3(plumber_data *pd, sporth_stack *stack, void **ud)
             sporth_stack_pop_string(stack);
             sporth_stack_pop_string(stack);
             sporth_stack_pop_string(stack);
+            in = sporth_stack_pop_float(stack);
             sporth_stack_pop_float(stack);
-            tracker_start(seq);
+            if(in != 0) {
+                tracker_start(seq);
+            } else {
+                tracker_play(seq);
+            }
             break;
 
         case PLUMBER_COMPUTE:
             seq = *ud;
+            sporth_stack_pop_float(stack);
             in = sporth_stack_pop_float(stack);
             if(in != 0) {
                 tracker_step(seq);

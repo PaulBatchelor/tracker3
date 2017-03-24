@@ -1,0 +1,88 @@
+# Channel 0
+0 pos
+0 chan
+60 0 note
+63 1 note
+67 1 note
+68 1 note
+60 1 note
+63 1 note
+67 1 note
+68 1 note
+60 1 note
+63 1 note
+67 1 note
+68 1 note
+60 1 note
+63 1 note
+67 1 note
+68 1 note
+58 1 note
+63 1 note
+67 1 note
+68 1 note
+58 1 note
+63 1 note
+67 1 note
+68 1 note
+58 1 note
+63 1 note
+67 1 note
+68 1 note
+58 1 note
+63 1 note
+67 1 note
+68 1 note
+60 1 note
+63 1 note
+67 1 note
+68 1 note
+60 1 note
+63 1 note
+67 1 note
+68 1 note
+60 1 note
+63 1 note
+67 1 note
+68 1 note
+60 1 note
+63 1 note
+67 1 note
+68 1 note
+60 1 note
+63 1 note
+67 1 note
+70 1 note
+60 1 note
+63 1 note
+67 1 note
+70 1 note
+60 1 note
+63 1 note
+67 1 note
+72 1 note
+60 1 note
+63 1 note
+67 1 note
+72 1 note
+
+# Channel 1
+0 pos
+1 chan
+36 0 note
+39 16 note
+44 16 note
+46 24 note
+
+# Channel 2
+0 pos
+2 chan
+60 0 note
+-2 12 note
+68 4 note
+-2 4 note
+67 4 note
+63 16 note
+-2 19 note
+
+0 pos 0 chan

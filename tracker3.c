@@ -227,7 +227,7 @@ void tracker_init(tracker3_d *track,
         SPFLOAT *notes,
         SPFLOAT *gates)
 {
-    track->run = 1;
+    track->run = 0;
     memset(track->data, -1, sizeof(char) * 64 * 3);
     track->please_draw = 1;
     track->pos = 0;
@@ -246,15 +246,18 @@ void tracker_init(tracker3_d *track,
     tracker_runt_load(track);
 }
 
-void tracker_start(tracker3_d *seq)
+void tracker_start(tracker3_d *track)
 {
-    pthread_create(&seq->thread, NULL, run_loop, seq);
+    track->run = 1;
+    pthread_create(&track->thread, NULL, run_loop, track);
 }
 
-void tracker_stop(tracker3_d *seq)
+void tracker_stop(tracker3_d *track)
 {
-    seq->run = 0;
-    pthread_join(seq->thread, NULL);
+    if(track->run) {
+        track->run = 0;
+        pthread_join(track->thread, NULL);
+    }
 }
 
 void tracker_update(tracker3_d *track)
