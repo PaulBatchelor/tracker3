@@ -46,6 +46,10 @@ static void key(GLFWwindow* window, int key, int scancode, int action, int mods)
                     case GLFW_KEY_K:
                         tracker_move_upjump(track);
                         break;
+                    case GLFW_KEY_1:
+                        tracker_insert_noteoff(track);
+                        break;
+
                 }
                 break;
             default:
@@ -117,10 +121,6 @@ static void key(GLFWwindow* window, int key, int scancode, int action, int mods)
                     /* delete */ 
                     case GLFW_KEY_X:
                         tracker_remove_note(track);
-                        break;
-                    /* noteoff */
-                    case GLFW_KEY_TAB:
-                        tracker_insert_noteoff(track);
                         break;
                     case GLFW_KEY_SPACE:
                         tracker_play(track);
