@@ -19,10 +19,10 @@ It boasts a small set of features:
 ## Installation
 
 Tracker3 depends on the following:
-    - [Soundpipe](https://www.github.com/paulbatchelor/soundpipe.git)
-    - [Sporth](https://www.github.com/paulbatchelor/Sporth.git)
-    - [Runt](https://www.github.com/paulbatchelor/runt.git)
-    - GLFW
+- [Soundpipe](https://www.github.com/paulbatchelor/soundpipe.git)
+- [Sporth](https://www.github.com/paulbatchelor/Sporth.git)
+- [Runt](https://www.github.com/paulbatchelor/runt.git)
+- GLFW
 
 On Linux, the plugin can be compiled with:
 
