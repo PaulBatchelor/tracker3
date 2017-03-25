@@ -1,8 +1,7 @@
 #ifndef BITMAPS
 #define BITMAPS
 
-static unsigned char square[] =
-{
+static unsigned char square[] = {
 /* open */
 0b11111000,
 0b10001000,
@@ -18,8 +17,7 @@ static unsigned char square[] =
 0b11111000,
 };
 
-static unsigned char numbers[] =
-{
+static unsigned char numbers[] = {
 /* 0 */
 0b01110000,
 0b10001000,
@@ -108,8 +106,7 @@ static unsigned char lines[] = {
 };
 
 
-static unsigned char notes[] = 
-{
+static unsigned char notes[] = {
 /* A */
 0b10001000,
 0b10001000,
