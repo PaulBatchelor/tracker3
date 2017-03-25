@@ -1,3 +1,4 @@
+#define _BSD_SOURCE
 #include <GLFW/glfw3.h>
 #include <time.h>
 #include <stdlib.h>
