@@ -1,5 +1,7 @@
-LDFLAGS = -lpthread -lglfw -lGL -lsporth -lsoundpipe -ldl -lm -lrunt
-CFLAGS = -Wall -ansi
+LDFLAGS = -L$(HOME)/.runt/lib
+LDFLAGS += -lpthread -lglfw -lGL -lsporth -lsoundpipe -ldl -lm -lrunt
+CFLAGS = -I$(HOME)/.runt/include
+CFLAGS += -Wall -ansi
 default: tracker3.so
 
 OBJ = draw.o tracker3.o ugen.o runt.o
